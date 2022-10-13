@@ -6,6 +6,7 @@ bossfight made using SFML.
 ## Build Requirements
 
 To build the project yourself, you will need the following tools:
+
     - CMake
     - Ninja
     - GCC
