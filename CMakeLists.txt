@@ -10,7 +10,12 @@ FetchContent_MakeAvailable(SFML)
 
 add_executable(omega 
     src/main.cpp 
+    src/gameObject.cpp
+    src/scene.cpp
+    src/sceneHandler.cpp
+    src/spriteObject.cpp
     # include/placeholder.hpp
 )
 target_include_directories(omega PRIVATE "include")
+target_include_directories(omega PRIVATE "assets")
 target_link_libraries(omega PRIVATE sfml-graphics)
