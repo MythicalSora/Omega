@@ -19,3 +19,10 @@ add_executable(omega
 target_include_directories(omega PRIVATE "include")
 target_include_directories(omega PRIVATE "assets")
 target_link_libraries(omega PRIVATE sfml-graphics)
+
+if (WIN32 AND BUILD_SHARED_LIBS)
+    add_custom_command(TARGET CMakeSFMLProject POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:omega> $<TARGET_FILE_DIR:omega> COMMAND_EXPAND_LISTS)
+endif()
+
+install(TARGETS omega)

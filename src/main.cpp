@@ -8,14 +8,14 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(400, 400), "SFML with Scenes!");
     Scene scene1("scene01");
 
-    SpriteObject sprite1("soldierSprite", "./assets/head.png");
+    SpriteObject sprite1("soldierSprite", "assets/head.png");
     sprite1.setPosition(sf::Vector2f(70.0f, 70.0f));
     sprite1.setScale(sf::Vector2f(5.0f, 5.0f));
     scene1.addGameObject(sprite1);
 
     Scene scene2("scene02");
 
-    SpriteObject sprite2("soldierSprite", "./assets/head_hurt.png");
+    SpriteObject sprite2("soldierSprite", "assets/head_hurt.png");
     sprite2.setPosition(sf::Vector2f(70.0f, 70.0f));
     sprite2.setScale(sf::Vector2f(5.0f, 5.0f));
     scene2.addGameObject(sprite2);
