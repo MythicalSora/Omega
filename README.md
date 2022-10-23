@@ -15,6 +15,6 @@ To build the project yourself, you will need the following tools:
 
 Use the following 2 commands to build the project:
 ```sh
-cmake -S . -B build -DCMAKE_BUILD_TypE=Release -G "Ninja"
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -G "Ninja"
 ninja -C build
 ```
