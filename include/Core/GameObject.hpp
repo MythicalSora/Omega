@@ -1,17 +1,20 @@
 #pragma once
 
-#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
 
-class GameObject {
-    private: 
-        const std::string identifier;
-    public:
-        GameObject(std::string identifier);
-        GameObject(const GameObject& other);
+namespace Core {
+    class GameObject {
+        private:
+            std::string id;
+        
+        protected:
+            sf::RectangleShape rect;
+        
+        public:
+            GameObject(sf::Vector2f position, sf::Vector2f size, sf::Color colour = sf::Color::Transparent);
 
-        virtual ~GameObject();
-    public:
-        virtual void update() = 0;
-        virtual void render();
-        std::string getIdentifier() const;
-};
+            virtual sf::RectangleShape drawable();
+    };
+}
