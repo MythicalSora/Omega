@@ -13,9 +13,10 @@ FetchContent_MakeAvailable(SFML)
 add_executable(omega 
     src/Main.cpp
     src/Core/Game.cpp
-    src/Core/GameObject.cpp
     src/Core/Scene.cpp
 )
+
+file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 
 target_include_directories(omega PRIVATE "include")
 target_include_directories(omega PRIVATE "assets")

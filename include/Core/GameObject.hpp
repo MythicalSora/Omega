@@ -6,15 +6,17 @@
 
 namespace Core {
     class GameObject {
-        private:
-            std::string id;
-        
-        protected:
-            sf::RectangleShape rect;
-        
-        public:
-            GameObject(sf::Vector2f position, sf::Vector2f size, sf::Color colour = sf::Color::Transparent);
+    private:
+        std::string id;
 
-            virtual sf::RectangleShape drawable();
+    public:
+        sf::Vector2f pos;
+        sf::Vector2f size;
+        sf::Color colour;
+
+    public:
+        GameObject(sf::Vector2f position, sf::Vector2f size, sf::Color colour = sf::Color::Transparent);
+        virtual void update();
+        virtual sf::Drawable* getDrawable();
     };
 }
