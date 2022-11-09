@@ -18,5 +18,7 @@ namespace Core {
         GameObject(sf::Vector2f position, sf::Vector2f size, sf::Color colour = sf::Color::Transparent);
         virtual void update();
         virtual sf::Drawable* getDrawable();
+        sf::Vector2f getPosition();
+        sf::Vector2f getSize();
     };
 }

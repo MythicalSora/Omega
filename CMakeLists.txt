@@ -14,13 +14,14 @@ add_executable(omega
     src/Main.cpp
     src/Core/Game.cpp
     src/Core/Scene.cpp
-)
+        src/Core/Sprite.cpp src/Core/GameObject.cpp src/Core/Button.cpp src/Core/Utilities.cpp)
 
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 
 target_include_directories(omega PRIVATE "include")
+target_include_directories(omega PRIVATE "include/Core")
 target_include_directories(omega PRIVATE "assets")
-target_link_libraries(omega PRIVATE sfml-graphics sfml-window)
+target_link_libraries(omega PRIVATE sfml-graphics sfml-window sfml-audio)
 
 if (WIN32 AND BUILD_SHARED_LIBS)
     add_custom_command(TARGET omega POST_BUILD
