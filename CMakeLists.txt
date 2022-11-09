@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.21)
 project(omega LANGUAGES CXX)
+
 set (CMAKE_CXX_STANDARD 20)
+set (CMAKE_BUILD_TYPE RelWithDebInfo)
 
 include(FetchContent)
 FetchContent_Declare(SFML
@@ -9,16 +11,17 @@ FetchContent_Declare(SFML
 FetchContent_MakeAvailable(SFML)
 
 add_executable(omega 
-    src/main.cpp 
-    src/gameObject.cpp
-    src/scene.cpp
-    src/sceneHandler.cpp
-    src/spriteObject.cpp
-    # include/placeholder.hpp
-)
+    src/Main.cpp
+    src/Core/Game.cpp
+    src/Core/Scene.cpp
+        src/Core/Sprite.cpp src/Core/GameObject.cpp)
+
+file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
+
 target_include_directories(omega PRIVATE "include")
+target_include_directories(omega PRIVATE "include/Core")
 target_include_directories(omega PRIVATE "assets")
-target_link_libraries(omega PRIVATE sfml-graphics)
+target_link_libraries(omega PRIVATE sfml-graphics sfml-window sfml-audio)
 
 if (WIN32 AND BUILD_SHARED_LIBS)
     add_custom_command(TARGET omega POST_BUILD
