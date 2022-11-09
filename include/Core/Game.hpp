@@ -19,6 +19,5 @@ namespace Core {
             void run();
             void addScene(Scene* scene, Utilities::SceneType type);
             void setActiveScene(Utilities::SceneType type);
-            void update();
     };
 }

@@ -29,13 +29,16 @@ namespace Core {
                         else
                             setActiveScene(Utilities::SceneType::MENU);
                     }
+
+                    if(event.key.code == sf::Keyboard::Up) {
+                        activeScene->playSfx("sword");
+                    }
                 }
             }
 
             window.clear();
 
             if (nextActiveScene) {
-//                activeScene->unload();
                 activeScene = nextActiveScene;
                 activeScene->init();
                 nextActiveScene = nullptr;

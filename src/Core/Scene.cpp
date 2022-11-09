@@ -60,6 +60,7 @@ namespace Core {
     void Scene::renderGameObjects() {
         for (GameObject* gameObject : gameObjects) {
             window->draw(*gameObject->getDrawable());
+            gameObject->update();
         }
     }
 }
