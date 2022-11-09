@@ -6,7 +6,7 @@
 
 #include "Sprite.hpp"
 
-class Entity : Core::Sprite {
+class Entity : public Core::Sprite {
 protected:
     float hp;
     float attack;
@@ -16,8 +16,8 @@ public:
     Entity(float hp, float attack, float defense, sf::Vector2f position, sf::Vector2f size, sf::Color colour, std::string textureFile);
 
     float getHp();
-    float getAttack() const;
-    float getDefense() const;
+    float* getAttack() ;
+    float* getDefense();
 
     void updateHp(std::string operation, float value);
 };

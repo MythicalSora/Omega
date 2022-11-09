@@ -21,15 +21,7 @@ namespace Core {
         this->rect.setOutlineColor(sf::Color::Black);
     }
 
-    void Button::onClick() {
-        if (isClicked()) {
-            printf("I clicked a button and my weird function call works\n");
-        }
-    }
-
-    void Button::update() {
-        onClick();
-    }
+    void Button::update() {}
 
     sf::Drawable* Button::getDrawable() {
         return &this->rect;
@@ -46,6 +38,14 @@ namespace Core {
     }
 
     bool Button::isClicked() {
-        return (isHovered() && sf::Mouse::isButtonPressed(sf::Mouse::Button::Left));
+        if (isHovered() && !this->beingClicked && sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+            this->beingClicked = true;
+            return true;
+        } else if (!sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+        {
+            this->beingClicked = false;
+        }
+
+        return false;
     }
 }

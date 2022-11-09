@@ -14,12 +14,12 @@ float Entity::getHp() {
     return this->hp;
 }
 
-float Entity::getAttack() const {
-    return this->attack;
+float* Entity::getAttack() {
+    return &this->attack;
 }
 
-float Entity::getDefense() const {
-    return this->defense;
+float* Entity::getDefense() {
+    return &this->defense;
 }
 
 void Entity::updateHp(std::string operation, float value) {

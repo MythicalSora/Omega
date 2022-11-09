@@ -14,4 +14,27 @@ namespace Utilities {
     static bool IsType(Core::GameObject* object) {
         return dynamic_cast<T*>(object) != nullptr;
     }
+
+    [[maybe_unused]] inline void randInit()
+    {
+        srandom(time(nullptr));
+    }
+
+    [[maybe_unused]] inline float randf(float Min, float Max)
+    {
+        randInit();
+        return ((float(random()) / float(RAND_MAX)) * (Max - Min)) + Min;
+    }
+
+    [[maybe_unused]] inline int randi(int Min, int Max)
+    {
+        randInit();
+        return ((int)random() % (Max - Min)) + Min;
+    }
+
+    [[maybe_unused]] inline bool randb()
+    {
+        randInit();
+        return random() % 2 == 0;
+    }
 }

@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <Core/Scene.hpp>
+#include "Buttons/SceneButton.hpp"
 
 namespace Core {
     Scene::Scene(Utilities::SceneType id, sf::RenderWindow* window) {
@@ -60,7 +61,6 @@ namespace Core {
     void Scene::renderGameObjects() {
         for (GameObject* gameObject : gameObjects) {
             window->draw(*gameObject->getDrawable());
-            gameObject->update();
         }
     }
 }

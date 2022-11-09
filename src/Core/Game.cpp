@@ -1,5 +1,8 @@
 #include <SFML/Window/Event.hpp>
 #include <Core/Game.hpp>
+#include "Buttons/SceneButton.hpp"
+#include "Buttons/AttackButton.hpp"
+#include "Buttons/HealButton.hpp"
 
 namespace Core {
     Game::Game(int width, int height, std::string title, bool vsync, sf::RenderWindow** outWindow) {
@@ -45,6 +48,26 @@ namespace Core {
             }
 
             activeScene->update();
+
+            for (GameObject* object : activeScene->gameObjects) {
+                if (Utilities::IsType<Buttons::SceneButton>(object)) {
+                    auto* button = dynamic_cast<Buttons::SceneButton*>(object);
+                    if (button->isClicked()) {
+                        setActiveScene(button->scene);
+                    }
+                } else if (Utilities::IsType<Buttons::AttackButton>(object)) {
+                    auto* button = dynamic_cast<Buttons::AttackButton*>(object);
+                    if (button->isClicked()) {
+                        button->attack((Entity*)activeScene->gameObjects[2], (Entity*)activeScene->gameObjects[3]);
+                    }
+                } else if (Utilities::IsType<Buttons::HealButton>(object)) {
+                auto* button = dynamic_cast<Buttons::HealButton*>(object);
+                if (button->isClicked()) {
+                    button->heal((Entity*)activeScene->gameObjects[2]);
+                }
+            }
+            }
+
             window.display();
         }
     }

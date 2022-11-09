@@ -13,10 +13,10 @@ namespace Core {
         sf::Music music;
         sf::Sound sfx;
         std::map<std::string, sf::SoundBuffer> sfxBuffers;
-        std::vector<GameObject*> gameObjects;
 
     public:
         Utilities::SceneType id;
+        std::vector<GameObject*> gameObjects;
 
     private:
         void renderGameObjects();

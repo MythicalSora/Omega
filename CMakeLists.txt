@@ -14,7 +14,7 @@ add_executable(omega
     src/Main.cpp
     src/Core/Game.cpp
     src/Core/Scene.cpp
-        src/Core/Sprite.cpp src/Core/GameObject.cpp src/Core/Button.cpp)
+        src/Core/Sprite.cpp src/Core/GameObject.cpp src/Core/Button.cpp src/Buttons/SceneButton.cpp src/Buttons/AttackButton.cpp include/Buttons/AttackButton.hpp include/Buttons/HealButton.hpp src/Entity.cpp include/Entity.hpp src/Buttons/HealButton.cpp)
 
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 

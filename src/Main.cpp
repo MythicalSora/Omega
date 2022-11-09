@@ -4,6 +4,9 @@
 #include "Core/Game.hpp"
 #include "Core/Sprite.hpp"
 #include "Button.hpp"
+#include "Buttons/SceneButton.hpp"
+#include "Buttons/AttackButton.hpp"
+#include "Buttons/HealButton.hpp"
 
 int main() {
     sf::RenderWindow* window;
@@ -14,10 +17,18 @@ int main() {
 //    Core::Sprite sprite = Core::Sprite(sf::Vector2f(50, 50), sf::Vector2f(4, 4), sf::Color::Transparent, "assets/head.png");
 //    Core::Sprite sprite2 = Core::Sprite(sf::Vector2f(50, 50), sf::Vector2f(4, 4), sf::Color::Transparent, "assets/head_hurt.png");
 
-    Core::Button button = Core::Button(window, sf::Vector2f(200, 200), sf::Vector2f(100, 150), sf::Color::White, sf::Color::Magenta, "Click Me!");
+    Buttons::SceneButton button = Buttons::SceneButton(Utilities::SceneType::BATTLE, window, sf::Vector2f(200, 200), sf::Vector2f(150, 100), sf::Color::White, sf::Color::Magenta, "Click Me!");
+    Buttons::AttackButton button2 = Buttons::AttackButton(window, sf::Vector2f(200, 200), sf::Vector2f(150, 100), sf::Color::White, sf::Color::Magenta, "Click Me!");
+    Buttons::HealButton button3 = Buttons::HealButton(window, sf::Vector2f(400, 200), sf::Vector2f(150, 100), sf::Color::White, sf::Color::Magenta, "Click Me!");
+
+    Entity player = Entity(100, 20, 17, sf::Vector2f(500, 500), sf::Vector2f(3, 3), sf::Color::Transparent, "assets/head.png");
+    Entity enemy = Entity(100, 20, 17, sf::Vector2f(1000, 500), sf::Vector2f(3, 3), sf::Color::Transparent, "assets/head_hurt.png");
 
     scene.addGameObject(&button);
-//    scene2.addGameObject(&sprite2);
+    scene2.addGameObject(&button2);
+    scene2.addGameObject(&button3);
+    scene2.addGameObject(&player);
+    scene2.addGameObject(&enemy);
 
     scene.addMusic("assets/Abstraction - Three Red Hearts - Puzzle Pieces.wav");
     scene2.addMusic("assets/Abstraction - Three Red Hearts - Pixel War 2.wav");
